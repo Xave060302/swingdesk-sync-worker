@@ -1,0 +1,10 @@
+name = "swingdesk-sync-worker"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+APP_URL = "https://swingdesk-direct.pages.dev"
+
+[triggers]
+crons = ["*/5 * * * *"]
