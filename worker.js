@@ -1,6 +1,6 @@
 // SwingDesk AI – Cloudflare Cron-Worker mit gezielter Fehlerdiagnose.
 // Keine Zugangsschluessel oder TradingView-Cookies in diesem Repository speichern.
-const VERSION = 'cron-diagnose-2.0';
+const VERSION = 'cron-diagnose-2.1';
 const TARGET_PATH = '/api/background/run';
 function log(level, stage, detail = {}) {
   const entry = { app: 'SwingDesk', version: VERSION, stage, ...detail };
@@ -30,7 +30,7 @@ export default {
         response = await fetch(url, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + env.SYNC_KEY, 'Accept': 'application/json' },
-          redirect: 'error',
+          redirect: 'manual',
           signal: AbortSignal.timeout(20000)
         });
       } catch (error) {
